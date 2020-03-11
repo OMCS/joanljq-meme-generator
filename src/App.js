@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Search from './components/Search';
 import Memetext from './components/Memetext';
 import Meme from './components/Meme';
+import domtoimage from 'dom-to-image';
+import { saveAs } from 'file-saver';
 
 import './App.css';
 
@@ -14,6 +16,7 @@ class App extends Component {
     this.handleMtSubmit = this.handleMtSubmit.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
     this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.downloadHandler = this.downloadHandler.bind(this);
     this.state = {
       query: '',
       pictures: [],
@@ -61,8 +64,9 @@ class App extends Component {
       return response.json();
     })
     .then(function(j){
-      alert(JSON.stringify(j));
+      //alert(JSON.stringify(j));
       let picArray = j.photos.photo.map((pic) => {
+        // 'https://live.staticflickr.com/'
         // 'https://farm'+pic.farm+'.staticflickr.com/'
         var srcPath = 'https://live.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
         return(
@@ -89,6 +93,14 @@ class App extends Component {
       memetext: '',
       enteredmtext: false,
       enteredstext: false
+    });
+  }
+
+  downloadHandler(event){
+    event.preventDefault();
+    domtoimage.toBlob(document.getElementById('my-node'))
+    .then(function (blob) {
+        saveAs(blob, 'myMeme.png');
     });
   }
 
@@ -128,6 +140,7 @@ class App extends Component {
             clickedurl={this.state.clickedurl}
             memetext={this.state.memetext}
             handleButtonClick={this.handleButtonClick}
+            downloadHandler = {this.downloadHandler}
           />
         </div>
       );

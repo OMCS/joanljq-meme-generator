@@ -9,10 +9,13 @@ class Meme extends Component {
     return (
       <div>
         <div className={styles.container}>
-          <img className={styles.picturestyle} alt={this.props.query} src={this.props.clickedurl}></img>
-          <p className={styles.centered}>{this.props.memetext}</p>
+          <div id="my-node">
+            <img className={styles.picturestyle} alt={this.props.query} src={this.props.clickedurl}></img>
+            <p className={styles.centered}>{this.props.memetext}</p>
+          </div>
         </div>
-        <button className={styles.button} onClick={this.props.handleButtonClick}>Back to Search Image</button>
+        <button className={styles.button1} onClick={this.props.downloadHandler} >Download Meme</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button className={styles.button2} onClick={this.props.handleButtonClick}>Back to Search</button>
       </div>
     );
   }
@@ -24,6 +27,7 @@ Meme.propTypes = {
   clickedurl: PropTypes.string.isRequired,
   memetext: PropTypes.string.isRequired,
   handleButtonClick: PropTypes.func.isRequired,
+  downloadHandler: PropTypes.func.isRequired,
 }
 
 export default Meme;

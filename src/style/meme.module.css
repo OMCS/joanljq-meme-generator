@@ -4,18 +4,32 @@
     display: inline-block;
 }
 
-.button {
+.button1 {
     background-color: #4CAF50;
     border: none;
     border-radius: 4px;
     color: white;
-    padding: 15px 32px;
+    padding: 7px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin-top: 20px;
     cursor: pointer;
+    margin-right: 20px;
+}
+
+.button2 {
+    background-color: #008CBA;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 7px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 20px;
 }
 
 .container {
@@ -26,10 +40,12 @@
 
 .centered {
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
+    display: block;
+    max-width: 300px;
 }
 
