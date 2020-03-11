@@ -11,7 +11,8 @@ class Memetext extends Component {
       <div>
         <img className={styles.picturestyle} alt={this.props.query} src={this.props.clickedurl}></img>
         <form onSubmit={this.props.handleMtSubmit}>
-           <input className={styles.textbox}
+           <input
+             style={{ width: '40%', padding: '6px 10px', margin: '0', display: 'inline-block', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box', fontSize: 'large' }}
              placeholder="Enter text for meme"
              type="text"
              value={this.props.memetext}

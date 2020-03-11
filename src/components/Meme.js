@@ -8,9 +8,11 @@ class Meme extends Component {
   render() {
     return (
       <div>
-        <button className={styles.homebutton} onClick={this.props.handleButtonClick}>Back to Search Image</button>
-        <img className={styles.picturestyle} alt={this.props.query} src={this.props.clickedurl}></img>
-        <p>{this.props.memetext}</p>
+        <div className={styles.container}>
+          <img className={styles.picturestyle} alt={this.props.query} src={this.props.clickedurl}></img>
+          <p className={styles.centered}>{this.props.memetext}</p>
+        </div>
+        <button className={styles.button} onClick={this.props.handleButtonClick}>Back to Search Image</button>
       </div>
     );
   }

@@ -47,20 +47,24 @@ class App extends Component {
 
   handleMtSubmit(event) {
     event.preventDefault();
+    let originaltext = this.state.memetext;
+    let uppertext = originaltext.toUpperCase();
     this.setState({
       enteredmtext: true,
+      memetext: uppertext,
     });
   }
 
   getInfo() {
-    fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f9deeac6a7448cf0f1489aa0a2720892&text=${this.state.query}&per_page=10&format=json&nojsoncallback=1`)
+    fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f9deeac6a7448cf0f1489aa0a2720892&text=${this.state.query}&per_page=20&format=json&nojsoncallback=1`)
     .then(function(response){
       return response.json();
     })
     .then(function(j){
       alert(JSON.stringify(j));
       let picArray = j.photos.photo.map((pic) => {
-        var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
+        // 'https://farm'+pic.farm+'.staticflickr.com/'
+        var srcPath = 'https://live.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
         return(
           srcPath
         )
