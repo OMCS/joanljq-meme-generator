@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import styles from '../style/memetext.module.css'
 
 
 class Memetext extends Component {
@@ -8,9 +9,9 @@ class Memetext extends Component {
   render() {
     return (
       <div>
-        <img alt={this.props.query} src={this.props.clickedurl}></img>
+        <img className={styles.picturestyle} alt={this.props.query} src={this.props.clickedurl}></img>
         <form onSubmit={this.props.handleMtSubmit}>
-           <input
+           <input className={styles.textbox}
              placeholder="Enter text for meme"
              type="text"
              value={this.props.memetext}

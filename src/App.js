@@ -20,7 +20,8 @@ class App extends Component {
       clickedurl: '',
       clickedimage: false,
       memetext: '',
-      enteredtext: false
+      enteredmtext: false, 
+      enteredstext: false
     }
   }
 
@@ -32,6 +33,9 @@ class App extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    this.setState({
+      enteredstext: true,
+    });
     this.getInfo();
   }
 
@@ -44,7 +48,7 @@ class App extends Component {
   handleMtSubmit(event) {
     event.preventDefault();
     this.setState({
-      enteredtext: true,
+      enteredmtext: true,
     });
   }
 
@@ -58,7 +62,7 @@ class App extends Component {
       let picArray = j.photos.photo.map((pic) => {
         var srcPath = 'https://farm'+pic.farm+'.staticflickr.com/'+pic.server+'/'+pic.id+'_'+pic.secret+'.jpg';
         return(
-          [<img alt={this.state.query} src={srcPath}></img>, srcPath]
+          srcPath
         )
       })
       this.setState({pictures: picArray});
@@ -79,14 +83,15 @@ class App extends Component {
       clickedurl: '',
       clickedimage: false,
       memetext: '',
-      enteredtext: false
+      enteredmtext: false,
+      enteredstext: false
     });
   }
 
   render() {
     let {clickedimage} = this.state;
-    let {enteredtext} = this.state;
-    if (clickedimage && !enteredtext) {
+    let {enteredmtext} = this.state;
+    if (clickedimage && !enteredmtext) {
       return (
         <div className="App">
           <Memetext
@@ -98,15 +103,17 @@ class App extends Component {
           />
         </div>
       );
-    } else if (!clickedimage && !enteredtext) {
+    } else if (!clickedimage && !enteredmtext) {
       return (
         <div className="App">
           <Search
             query={this.state.query}
+            pictures={this.state.pictures}
+            enteredstext={this.state.enteredstext}
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
+            handleImageClick={this.handleImageClick}
           />
-          {this.state.pictures.map((picture, i) => <li value={picture[1]} key={i} onClick={() => this.handleImageClick(picture[1])}>{picture[0]}</li>)}
         </div>
       );
     } else {

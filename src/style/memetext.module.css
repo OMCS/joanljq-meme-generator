@@ -1,0 +1,14 @@
+.textbox {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 0px 0 0 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+.picturestyle {
+    margin-top: 50px;
+}
