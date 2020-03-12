@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import background from '../style/meme.png';
 import styles from '../style/search.module.css'
 
 class Search extends Component {
@@ -55,17 +56,20 @@ class Search extends Component {
       );
     } else {
       return (
-        <div>
-          <h1>Welcome to Meme Generator</h1>
+        <div className={styles.container}>
+          <img src={background} alt='background' className={styles.backgroundimg}/>
+          <div className={styles.centered}>
+          <h1>Start Making Memes Now</h1>
           <form onSubmit={this.props.handleSubmit}>
             <input
-              style={{ width: '50%', padding: '12px 20px', margin: '0', display: 'inline-block', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box', fontSize: 'large' }}
+              style={{ width: '100%', padding: '12px 20px', margin: '0', display: 'inline-block', border: '1px solid #ccc', borderRadius: '4px', boxSizing: 'border-box', fontSize: 'large' }}
               placeholder="Search for..."
               type="text"
               value={this.props.query}
               onChange={this.props.handleChange}
             />
           </form>
+          </div>
         </div>
       );
     }
