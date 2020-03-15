@@ -1,5 +1,5 @@
 # Meme generator
-This is a meme generator app using React
+This is a meme generator app using React  
 See it in the browser: https://stormy-ravine-81110.herokuapp.com/
 
 # Quick start
