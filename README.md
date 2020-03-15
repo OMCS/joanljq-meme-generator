@@ -1,5 +1,6 @@
 # Meme generator
-This is the code for meme generator using React
+This is a meme generator app using React
+See it in the browser: https://stormy-ravine-81110.herokuapp.com/
 
 # Quick start
 ```bash
@@ -8,7 +9,4 @@ $ npm install
 
 # Serve on localhost:3000
 $ npm start
-
-# Build for production
-$ npm run build
 ```
