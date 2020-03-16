@@ -22,7 +22,9 @@ class Search extends Component {
           </form>
           <p>please pick an image</p>
           <div className={styles.box}>
-          {this.props.pictures.map((pictureurl, i) => <img src={pictureurl} alt={this.props.query} className={styles.image} value={pictureurl} key={i} onClick={() => this.props.handleImageClick(pictureurl)}/>)}
+          <div className={styles.gallery}>
+          {this.props.pictures.map((pictureurl, i) => <div className={styles.pics} key={i}><img src={pictureurl} alt={this.props.query} className={styles.image} value={pictureurl} key={i} onClick={() => this.props.handleImageClick(pictureurl)}/></div>)}
+          </div>
           </div>
         </div>
       );

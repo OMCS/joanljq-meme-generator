@@ -75,6 +75,9 @@ class App extends Component {
       })
       this.setState({pictures: picArray});
     }.bind(this))
+    .catch(function(error) {
+      console.log(`error:${error}`);
+    });
   }
 
   handleImageClick(value) {
