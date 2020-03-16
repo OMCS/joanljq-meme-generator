@@ -18,6 +18,11 @@ class Memetext extends Component {
              value={this.props.memetext}
              onChange={this.props.handleMtChange}
            />
+           <p><input 
+            type="submit" 
+            value="Generate meme" 
+            className={styles.button1}
+           /></p>
         </form>
       </div>
     );
